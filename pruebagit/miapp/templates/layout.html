@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+
+            {% endblock title %}
+            | JAVIER QUISPE   
+        </title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+        
+    </head>
+    <body>
+        <header>
+            <div id="logotipo">
+                <h1>
+                    PROYECTO WEB LP3
+                </h1>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="/inicio"> INICIO </a> 
+                </li>
+                <li> 
+                    <a href="/saludo"> MENSAJE DE SALUDO </a>
+                </li>
+                <li> 
+                    <a href="/rango/10/20"> RANGO </a> 
+                </li>
+            </ul>
+        </nav>
+
+        <div id="content">
+        <h2 class="title"> 
+            Titulo de contenido (Prueba)
+        </h2>
+        {% block content %}
+            <strong>
+                Contenido en Layout (Padre, mensaje por defecto, cuando no se define en los hijos)
+            </strong>
+        {% endblock content %}
+        </div>
+        <footer>
+            UNTELS - Lenguaje de Programacion III  &copy; Quispe Javier
+        </footer>
+    </body>
+</html>
