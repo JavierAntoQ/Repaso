@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="utf-8" />
@@ -15,8 +14,9 @@
     <body>
         <header>
             <div id="logotipo">
+                <img src={% static 'images/LogoDJango.png' %}>
                 <h1>
-                    PROYECTO WEB LP3
+                    Proyecto Web (LP3)
                 </h1>
             </div>
         </header>
@@ -24,26 +24,31 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/inicio"> INICIO </a> 
+                    <a href="/inicio"> Inicio </a> 
                 </li>
                 <li> 
-                    <a href="/saludo"> MENSAJE DE SALUDO </a>
+                    <a href="/saludo"> Mensaje de Saludo </a>
                 </li>
                 <li> 
-                    <a href="/rango/10/20"> RANGO </a> 
+                    <a href="/rango/10/20"> Mostrar numeros [a.b] con parametro </a> 
                 </li>
             </ul>
         </nav>
 
+        <div class="barra">
+            <span class="esquina-izquierda"></span>
+            <span class="relleno-barra"></span>
+            <span class="esquina-derecha"></span>
+        </div>
+
         <div id="content">
-        <h2 class="title"> 
-            Titulo de contenido (Prueba)
-        </h2>
-        {% block content %}
-            <strong>
-                Contenido en Layout (Padre, mensaje por defecto, cuando no se define en los hijos)
-            </strong>
-        {% endblock content %}
+            <div class="box">
+                {% block content %}
+                    <strong>
+                        Contenido en Layout (Padre, mensaje por defecto, cuando no se define en los hijos)
+                    </strong>
+                {% endblock content %}
+            </div>
         </div>
         <footer>
             UNTELS - Lenguaje de Programacion III  &copy; Quispe Javier

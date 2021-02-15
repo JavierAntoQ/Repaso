@@ -2,7 +2,19 @@ from django.shortcuts import render, HttpResponse, redirect
 
 # Create your views here.
 layout = """
-
+    <h1>
+        <ul>
+            <li>
+                <a href="/inicio"> INICIO </a> 
+            </li>
+            <li> 
+                <a href="/saludo"> MENSAJE DE SALUDO </a>
+            </li>
+            <li> 
+                <a href="/rango/10/20"> RANGO </a> 
+             </li>
+        </ul>
+    </h1>
     """
 
 def saludo(request):
