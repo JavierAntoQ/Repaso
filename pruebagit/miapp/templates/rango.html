@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block title %}
+    {{titulo}}
+{% endblock title %}
+
+{% block content %}
+    <h1 class="title"> Numero de [{{a}},{{b}}] </h1>
+    <ul>
+        {% for numero in rango_numeros %}
+            <li>
+                {{numero}}
+            </li>
+        {% empty %}
+            Rango vacio
+        {% endfor %}
+    </ul>
+    <h2> Facultad de Ingenieria </h2>
+    <h3> EP Ingenieria de Sistemas - LP III </h3>
+{% endblock content %}

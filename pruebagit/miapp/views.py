@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
+from miapp.models import Reseña
 
 # Create your views here.
 layout = """
@@ -18,27 +19,49 @@ layout = """
     """
 
 def saludo(request):
-    return render(request, 'saludo.html')
+    return render(request, 'saludo.html',{
+        'titulo':'Saludo',
+        'nombre':'Quispe Calixto, Javier'
+    })
 
 def index(request):
-    return render(request, 'index.html')
 
-def rango(request,a,b):
+    estudiantes = [
+        'SERGIO DANIEL VITE COCHACHIN',
+        'ANTHONY GERARDO BENDEZU SANTISTEBAN',
+        'CRISTIAN ALEXIS CHIPANA HUAMAN',
+        'CARLOS GUSTAVO OYOLA SAAVEDRA',
+        'GERARDO MANUEL CASTILLO TORDOYA'
+    ]
 
-    if a > b:
-        return redirect('rango', a=b, b=a)
-    resultado = f"""
-        <h1> Rango con parametros </h1>
-        <h2> Numero de [{a} , {b}] </h2>
-        Resultado: <br>
-        <ul>
-    """
-    while a<=b:
-        resultado += f"<li> {a} </li>"
-        a+=1
+    return render(request, 'index.html', {
+        'titulo':'Inicio',
+        'mensaje':'Proyecto web con Django',
+        'estudiantes': estudiantes
+    })
 
-    resultado += "</ul>"
-    return HttpResponse(layout + resultado)
+def rango(request):
+    a = 10
+    b = 20
+    rango_numeros = range(a, b+1)
+
+    return render(request, 'rango.html',{
+        'titulo':'Rango (Desde el view)',
+        'a':a,
+        'b':b,
+        'rango_numeros':rango_numeros
+    })
+
+def crear_reseña(request, titulo, contenido, publicado):
+    reseña = Reseña(
+        titulo = titulo,
+        contenido = contenido,
+        publicado = publicado
+    )
+    reseña.save()
+    return HttpResponse(f"Reseña Creada: {reseña.titulo} - {reseña.contenido}")
+
+
 
 
 

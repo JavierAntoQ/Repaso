@@ -5,7 +5,7 @@
             {% block title %}
 
             {% endblock title %}
-            | JAVIER QUISPE   
+            | Quispe Javier  
         </title>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
@@ -24,13 +24,13 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/inicio"> Inicio </a> 
+                    <a href="{% url 'inicio' %}"> Inicio </a> 
                 </li>
                 <li> 
-                    <a href="/saludo"> Mensaje de Saludo </a>
+                    <a href="{% url 'saludo' %}"> Mensaje de Saludo </a>
                 </li>
                 <li> 
-                    <a href="/rango/10/20"> Mostrar numeros [a.b] con parametro </a> 
+                    <a href="{% url 'rango' %}"> Mostrar numeros [a.b] </a> 
                 </li>
             </ul>
         </nav>
@@ -51,7 +51,7 @@
             </div>
         </div>
         <footer>
-            UNTELS - Lenguaje de Programacion III  &copy; Quispe Javier
+            UNTELS - Lenguaje de Programacion III  &copy; Quispe Javier - {% now "d/m/y h:m:s" %}
         </footer>
     </body>
 </html>

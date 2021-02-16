@@ -22,6 +22,7 @@ urlpatterns = [
     path('', views.index, name = "index"),
     path('inicio/', views.index, name = "inicio"),
     path('saludo/', views.saludo, name = "saludo"),
-    path('rango/<int:a>/<int:b>', views.rango, name = "rango"),
+    path('rango/', views.rango, name = "rango"),
+    path('crear_reseña/<str:titulo>/<str:contenido>/<str:publicado>',views.crear_reseña, name ="crear_reseña"),
 
 ]

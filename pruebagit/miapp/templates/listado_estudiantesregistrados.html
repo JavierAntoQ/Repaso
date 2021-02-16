@@ -1,0 +1,23 @@
+<br>
+<hr>
+<br>
+<p> 
+    <strong> 
+        {{encabezado}} - Metodo 1
+    </strong>
+</p>
+    {{estudiantes}}
+
+<p> 
+    <strong> 
+        {{encabezado}} - Metodo 2
+    </strong>
+</p>
+<ul>
+    {% for estudiante in estudiantes %}
+        {{forloop.counter}}.- {{estudiante}}
+    <br>
+    {% empty %}
+        <p> No hay {{encabezado}} </p>
+    {% endfor %}
+</ul>
