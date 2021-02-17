@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{titulo}}
+{% endblock title %}
+
+{% block content %}
+    <h1 class="title"> {{titulo}} </h1>
+    <ul>
+        {% for reseña in reseñas %}
+            <li>
+                <h4> 
+                    {{reseña.id}} - {{reseña.titulo}}
+                </h4>
+                <span>
+                    Creado: {{reseña.creado}}
+                </span>
+            {% if reseña.publicado %}
+                <strong>
+                    Publicado
+                </strong>
+            {% else %}
+                <strong>
+                    No publicado / En revision
+                </strong>
+            {% endif %}
+                <p>
+                    {{reseña.contenido}}
+                    <br>
+                    <a href="{% url 'eliminar_reseña' id=reseña.id %}">
+                        Eliminar
+                    </a>
+                </p>
+            </li>
+         {% endfor %}
+    </ul>    
+{% endblock content %}
